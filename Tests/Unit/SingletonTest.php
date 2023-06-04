@@ -49,7 +49,8 @@ class SingletonTest extends TestCase
             $this->assertEquals($bIsset, $sClass::hasInstance(), 'hasInstance');
             $oObj = $sClass::getInstance();
             $this->assertEquals(true, $oObj instanceof $sClass, 'getInstance');
-            $this->assertEquals($bInterfaceInstance, $oObj instanceof (AfrSingletonInterface::class), 'interface instance');
+            $sInterface = AfrSingletonInterface::class;
+            $this->assertEquals($bInterfaceInstance, $oObj instanceof $sInterface, 'interface instance');
             $this->assertEquals($iGet, $oObj->get(), 'get');
             $this->assertEquals($iSet, $oObj->set($iSet), 'set');
             $this->assertEquals($iSet, $oObj->get(), 'get===set');
