@@ -1,0 +1,36 @@
+{
+    "type": "library",
+    "name": "autoframe/design-patterns",
+    "description": "PHP design patterns. Singleton...",
+    "license": "MIT",
+    "homepage": "https://github.com/autoframe",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "autoframe/components-exception": "^1.0 || ^2.0"
+    },
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Nistor Alexandru Marius",
+            "homepage": "https://autoframe.ro",
+            "role": "Developer"
+        }
+    ],
+    "keywords": ["Singleton", "Abstract Singleton", "Singleton trait"],
+    "autoload": {
+        "psr-4": {
+            "Autoframe\\DesignPatterns\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Unit\\": "Tests/Unit"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6 || ^10",
+        "symfony/var-dumper": "v5.4.24 || v6.2.11"
+    },
+    "optimize-autoloader": true
+
+}
