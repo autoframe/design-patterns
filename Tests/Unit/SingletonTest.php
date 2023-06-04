@@ -7,6 +7,7 @@ use Autoframe\DesignPatterns\Singleton\AfrSingletonInterface;
 use PHPUnit\Framework\TestCase;
 
 require_once(__DIR__ . '/AbstractSingletonTemp.php'); //namespace fix in autoloader in multi path env phpunit
+require_once(__DIR__ . '/SingletonTraitTemp.php'); //namespace fix in autoloader in multi path env phpunit
 require_once(__DIR__ . '/SingletonTraitImplementsTemp.php'); //namespace fix in autoloader in multi path env phpunit
 
 class SingletonTest extends TestCase
