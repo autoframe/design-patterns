@@ -47,30 +47,30 @@ class SingletonTest extends TestCase
                      [5, 7, true, SingletonTraitTemp::class, false]
                  ] as $list) {
             list($iGet, $iSet, $bIsset, $sClass, $bInterfaceInstance) = $list;
-            $this->assertEquals($bIsset, $sClass::hasInstance(), 'hasInstance');
+            $this->assertSame($bIsset, $sClass::hasInstance(), 'hasInstance');
             $oObj = $sClass::getInstance();
-            $this->assertEquals(true, $oObj instanceof $sClass, 'getInstance');
+            $this->assertSame(true, $oObj instanceof $sClass, 'getInstance');
             $sInterface = AfrSingletonInterface::class;
-            $this->assertEquals($bInterfaceInstance, $oObj instanceof $sInterface, 'interface instance');
-            $this->assertEquals($iGet, $oObj->get(), 'get');
-            $this->assertEquals($iSet, $oObj->set($iSet), 'set');
-            $this->assertEquals($iSet, $oObj->get(), 'get===set');
+            $this->assertSame($bInterfaceInstance, $oObj instanceof $sInterface, 'interface instance');
+            $this->assertSame($iGet, $oObj->get(), 'get');
+            $this->assertSame($iSet, $oObj->set($iSet), 'set');
+            $this->assertSame($iSet, $oObj->get(), 'get===set');
             try {
-                $this->assertEquals(null, new $sClass(), 'new');
+                $this->assertSame(null, new $sClass(), 'new');
             } catch (\Throwable $oEx) {
-                $this->assertEquals(null, null, 'new OK');
+                $this->assertSame(null, null, 'new OK');
             }
 
             try {
-                $this->assertEquals(null, (clone $oObj), 'clone');
+                $this->assertSame(null, (clone $oObj), 'clone');
             } catch (\Throwable $oEx) {
-                $this->assertEquals(null, null, 'clone OK');
+                $this->assertSame(null, null, 'clone OK');
             }
 
             try {
-                $this->assertEquals(null, unserialize(serialize($oObj)), 'wakeup');
+                $this->assertSame(null, unserialize(serialize($oObj)), 'wakeup');
             } catch (\Throwable $oEx) {
-                $this->assertEquals(null, null, 'wakeup OK');
+                $this->assertSame(null, null, 'wakeup OK');
             }
 
 
