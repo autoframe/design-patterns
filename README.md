@@ -10,9 +10,8 @@
 ### Singleton
 - Namespace Autoframe\DesignPatterns\Singleton
 	- abstract class AfrSingletonAbstractClass 
-		- implements AfrSingletonInterface
-		- use AfrSingletonTrait
-	  
+		- implements AfrSingletonInterface	
+        - 
 	- AfrSingletonTrait provides interface implementation
 	- Methods:
 	  - final public getInstance: self
@@ -21,3 +20,15 @@
 	  - final public __wakeup: @throws AfrException
 	  - final public __clone: @throws AfrException
 
+### Array Access Singleton object instance
+- Namespace Autoframe\DesignPatterns\SingletonArray
+	- abstract class AfrSingletonArrAbstractClass
+		- implements AfrSingletonInterface, ArrayAccess, Iterator, Countable
+		- use AfrObjectArrayAccessTrait
+
+### Array Access object instance
+- Namespace Autoframe\DesignPatterns\ArrayAccess
+	- class AfrObjectArrayAccessClass
+		- implements ArrayAccess, Iterator, Countable
+
+	- AfrObjectArrayAccessTrait implements ArrayAccess, Iterator, Countable

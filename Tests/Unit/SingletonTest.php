@@ -7,6 +7,7 @@ use Autoframe\DesignPatterns\Singleton\AfrSingletonInterface;
 use PHPUnit\Framework\TestCase;
 
 require_once(__DIR__ . '/AbstractSingletonTemp.php'); //namespace fix in autoloader in multi path env phpunit
+require_once(__DIR__ . '/AbstractSingletonArrTemp.php'); //namespace fix in autoloader in multi path env phpunit
 require_once(__DIR__ . '/SingletonTraitTemp.php'); //namespace fix in autoloader in multi path env phpunit
 require_once(__DIR__ . '/SingletonTraitImplementsTemp.php'); //namespace fix in autoloader in multi path env phpunit
 
@@ -77,5 +78,27 @@ class SingletonTest extends TestCase
         }
 
     }
+
+
+    /**
+     * @test
+     */
+    public function singletonArrTest(): void
+    {
+        echo __CLASS__ . '->' . __FUNCTION__ . PHP_EOL;
+        $k = 'sett';
+        $v = ['2', 5, 'fff', 'kk' => 'vv','sa'=>[0,1]];
+        $oObj = AbstractSingletonArrTemp::getInstance();
+        $oObj[$k] = $v;
+        $this->assertSame(true, isset($oObj[$k]));
+        $this->assertSame($v, $oObj[$k]);
+        unset($oObj[$k]['sa'][1]);
+        $this->assertSame(true, !isset($oObj[$k]['sa'][1]));
+
+        $oObj[$k]['sa'][0]='k';
+        $this->assertSame('k', $oObj[$k]['sa'][0]);
+
+   }
+
 
 }
